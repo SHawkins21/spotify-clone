@@ -2,6 +2,6 @@
 
 export default function Home() {
   return (
-    <div className="text-green-500">Main Content</div>
+    <main className="text-green-500">Main Content</main>
   )
 }

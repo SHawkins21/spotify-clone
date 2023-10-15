@@ -5,6 +5,7 @@ import {useRouter} from "next/navigation";
 import {RxCaretLeft, RxCaretRight} from "react-icons/rx"
 import {HiHome} from "react-icons/hi"
 import { BiSearch } from 'react-icons/bi';
+import Button from './Button';
 
 interface HeaderProps  {
     children: React.ReactNode; 
@@ -97,6 +98,25 @@ const Header: React.FC<HeaderProps> = ({
                 >
                     <BiSearch className="text-black"></BiSearch>
                 </button>
+            </div>
+            
+           
+            <div className='
+                    flex
+                    justify-between
+                    items-center
+                    gap-x-4'>
+            {/* Dynamic Content if you're logged in or logged out */}
+            <>
+           
+            </>
+            <div>
+                <Button>
+                Sign Up
+                </Button>
+            </div> 
+            
+
             </div>
         </div>
     </div>

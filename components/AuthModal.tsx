@@ -46,7 +46,7 @@ const AuthModal = () => {
     <Auth
     theme="dark"
     // providers can limit the numbers of AUTH so limit it to Google, Azure, github 
-    providers={["github", "discord", "google"]} 
+    providers={["github"]} 
     //magic link allows an email tp be submitted and then a link sent to the email
     magicLink
     supabaseClient={supabaseClient}

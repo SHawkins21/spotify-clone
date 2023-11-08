@@ -1,12 +1,30 @@
+"use client"; 
+
 import React from 'react'
 import {TbPlaylist} from 'react-icons/tb'
 import {AiOutlinePlus} from 'react-icons/ai'
+import useAuthModal from '@/hooks/useAuthModal'
+import { useUser } from '@/hooks/useUser'
+import useUPloadModal from '@/hooks/useUploadModal';
 
 
-type Props = {}
 
-const Library = (props: Props) => {
+
+const Library = () => {
+    const authModal = useAuthModal(); 
+    const uploadModal = useUPloadModal(); 
+    const { user, subscription } = useUser();  
+
     const onClick = () => {
+      if (!user) {
+        return authModal.onOpen(); 
+      }
+
+      // TODO: Check for subscription 
+
+      return uploadModal.onOpen(); 
+
+
      //Handel Upload Later       
     }; 
   return (

@@ -2,6 +2,7 @@
 
 
 import AuthModal from '@/components/AuthModal';
+import UploadModal from '@/components/UploadModal';
 
 import React, { useEffect, useState } from 'react'
 
@@ -24,6 +25,7 @@ const ModalProvider = () => {
     // All the Modals are going to be run through here 
     <>
       <AuthModal/>
+      <UploadModal/> 
       
     </>
   );

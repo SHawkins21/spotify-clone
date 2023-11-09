@@ -1,13 +1,15 @@
 "use client"
 
 
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from './Modal'
 import useUploadModal from '@/hooks/useUploadModal';
-import { FieldValues, useForm } from 'react-hook-form';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import Input from './Input';
 
 
 const UploadModal = () => {
+    const [isLoading, setIsLoading] = useState(); 
     const uploadModal = useUploadModal(); 
 
     const { 
@@ -33,8 +35,8 @@ const UploadModal = () => {
         }
     }
 
-    const onSubmit = () => { 
-        
+    const onSubmit: SubmitHandler<FieldValues> = async (values) => { 
+        // Upload to supabase 
     }
 
 
@@ -47,7 +49,41 @@ const UploadModal = () => {
     
     
     >
-        Form
+    <form
+    onSubmit={handleSubmit(onSubmit)}
+    className='flex flex-col gap-y-4'
+    >
+        <Input
+        id='title'
+        disabled={isLoading}
+        {...register('title', {required: true})}
+        placeholder="Song title"
+
+        />
+        <Input
+        id='author'
+        disabled={isLoading}
+        {...register('author', {required: true})}
+        placeholder="Song author"
+
+        />
+        <div>
+            <div className='pb-1'>
+               Select a song file 
+            </div>
+            <Input
+               id='song'
+               type="file"
+               disabled={isLoading}
+               accept=".mp3"
+               {...register('song', {required: true})}
+            />
+
+        </div>
+       
+
+
+    </form>
     </Modal>
   )
 }
